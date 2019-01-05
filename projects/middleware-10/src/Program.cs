@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore;
 using Microsoft.Extensions.Logging;
+using System;
 
 namespace HelloWorldWithMiddleware
 {
@@ -22,7 +23,7 @@ namespace HelloWorldWithMiddleware
 
     public class TerminalMiddleware
     {
-        int _count;
+        DateTime _date = DateTime.Now;
 
         public TerminalMiddleware(RequestDelegate next)
         {
@@ -32,7 +33,7 @@ namespace HelloWorldWithMiddleware
         {
             log.LogDebug($"Request: {context.Request.Path}");
             context.Response.Headers.Add("Content-Type", "text/plain");
-            await context.Response.WriteAsync($"Middleware is singleton. Keep refreshing {_count++}. \n\nIf you are wondering why the count is incremented twice (in Chrome at least), check the log. It will show that Chrome also try to load /favicon.ico.");
+            await context.Response.WriteAsync($"Middleware is singleton. Keep refreshing the page. You will see that the date does not change {_date}.");
         }
     }
 

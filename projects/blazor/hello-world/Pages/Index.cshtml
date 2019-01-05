@@ -1,5 +1,13 @@
 ﻿@page "/"
 
-<h1>Hello, world!</h1>
+<h1>Hello, world! @currentCount</h1>
+<button class="btn btn-primary" onclick="@IncrementCount">Click me</button>
 
-This is a modification from the project created by the Blazor template.
+@functions {
+    int currentCount = 1;
+
+    void IncrementCount()
+    {
+        currentCount++;
+    }
+}

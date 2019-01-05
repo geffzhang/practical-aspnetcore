@@ -1,4 +1,4 @@
-# MVC (32)
+# MVC (40)
 
 This section contains all micro samples for **ASP.NET Core MVC 2.1**.
 
@@ -28,6 +28,19 @@ There is no more need to include this tool in your project `<DotNetCliToolRefere
 
   Extend `Microsoft.AspNetCore.Mvc.ProblemDetails` to make it easier for day to day use. It will adjust what kind of information it shows based on your development environment.
 
+## Model Binding
+  
+  We are exploring everything related to model binding in this section.
+
+  * [Model binding using a class and FromQuery attribute](/projects/mvc/model-binding-from-query)
+
+    Use `[FromQuery]` attribute to have MVC put all the query string values nicely in a class instead of using primitives e.g. `int userId`.
+
+  * [Model binding using a class and FromRoute attribute](/projects/mvc/model-binding-from-route)
+
+    Use `[FromRoute]` attribute to have MVC put all the route values nicely in a class instead of using primitives e.g. `int userId`.
+
+
 ## Formatters
 
 * [Using Utf8Json as JSON Formatter](/projects/mvc/utf8json-formatter)
@@ -56,6 +69,10 @@ There is no more need to include this tool in your project `<DotNetCliToolRefere
 
   We also use the new `ActionResult<T>` return type. You can read more about the type [here](https://joonasw.net/view/aspnet-core-2-1-actionresult-of-t).
 
+* [Customizing NSwag](/projects/mvc/nswag-2)
+
+  Use attribute such as `SwaggerTag` to organize your API or `SwaggerIgnore` to hide an API from the definition (using `[ApiExplorerSettings(IgnoreApi = true)]` also works).
+
 ## Tag Helpers
 
   * [Tag Helper - Hello World](/projects/mvc/tag-helper)
@@ -77,6 +94,18 @@ There is no more need to include this tool in your project `<DotNetCliToolRefere
   * [Tag Helper - Nested Alert Tag Helper](/projects/mvc/tag-helper-5)
 
     Demonstrate passing values from Parent Tag to Child Tag.
+
+
+## Tag Helpers Tips and Tricks
+
+  * [Cache Busting Tag Helper](/projects/mvc/tag-helper-link)
+
+    Use `asp-append-version` to your css and script link to make sure that your visitors always use the latest version of your style and script files.
+
+  * [Cache Busting Image Tag Helper](/projects/mvc/tag-helper-img)
+
+    Use `asp-append-version` to your images to make sure that your visitors always use the latest version of images.
+
 
 ## MVC and Pages Routing
 
@@ -153,7 +182,7 @@ There is no more need to include this tool in your project `<DotNetCliToolRefere
     });
     ```
 
-## Localization (6)
+## Localization (7)
 
   We are exploring all the nitty gritty of localization with MVC here.
 
@@ -169,7 +198,7 @@ There is no more need to include this tool in your project `<DotNetCliToolRefere
 
     Demonstrate an easy way to use shared resources. The class name, `Global`, is just a name. It can be `Common` or `CommonResources`, etc. It does not matter.
 
-  * [MVC Localization - 4](/projects/mvc/mvc-localization-3)
+  * [MVC Localization - 4](/projects/mvc/mvc-localization-4)
 
     Similar to `MVC Localization - 3` except that now the assembly name and namespace share the same name. This is in contrast to `MVC Localization - 1` and `MVC Localization`.
 
@@ -183,6 +212,34 @@ There is no more need to include this tool in your project `<DotNetCliToolRefere
     
     This example demonstrates on how to ignore browser language preference by removing `AcceptLanguageHeaderRequestCultureProvider` and forcing your default language. This [article](https://dotnetcoretutorials.com/2017/06/22/request-culture-asp-net-core/) has a useful explanation on this provider.
 
+  * [MVC Localization - 7](/projects/mvc/mvc-localization-7)
+
+    This sample shows how to use localization resources located in a separate project. Notice how the namespace correspondents to the folder name at the resource project.
+
+## View Component (2)
+
+  We are exploring everything about ViewComponent in this section.
+
+  * [ View Component - Hello world](/projects/mvc/view-component)
+
+    This is the simplest sample of a `ViewComponent` that accept parameters. As you can see, the file for the `ViewComponent` class can be located anywhere. 
+
+    From the [doc](https://docs.microsoft.com/en-us/aspnet/core/mvc/views/view-components?view=aspnetcore-2.2#view-search-path) 
+    
+    > The runtime searches for the view in the following paths:
+
+    > * /Pages/Components/{View Component Name}/{View Name}
+    > * /Views/{Controller Name}/Components/{View Component Name}/{View Name}
+    > * /Views/Shared/Components/{View Component Name}/{View Name}
+    
+    > We recommend you name the view file Default.cshtml... 
+
+    So you will find the code for this `HelloWorldViewComponent` at `/Views/Shared/Components/HelloWorld/HelloWorld.cs` and the view at `/Views/Shared/Components/HelloWorld/Default.cshtml`.
+    
+
+  * [ View Component - Alternative Declaration](/projects/mvc/view-component-2)
+
+    This sample is the same as previous sample except the use of Tag Helper invocation. Use `@addTagHelper *, <AssemblyName>` to enable the invocation of view component as a Tag Helper. Pascal-cased view component class and properties are translated into their lower kebab case. 
 
 ## Razor Class Library (3)
 
