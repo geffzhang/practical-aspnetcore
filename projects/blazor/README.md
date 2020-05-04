@@ -1,8 +1,10 @@
-# Blazor (12)
+# Blazor (18)
 
-You will find samples for Blazor, a .NET application framework for Web Assembly here. To run the sample, simply type `dotnet watch run` at the folder of each project. All these samples run on Blazor experimental release version 0.7. Make sure you pay attention which port Kestrel is running on.
+Make sure you installed the latest [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1).
 
-  * [Hello World](/projects/blazor/hello-world)
+You will find samples for Blazor, a .NET application framework for Web Assembly here. To run the sample, simply type `dotnet watch run` at the folder of each project. Make sure you pay attention which port Kestrel is running on.
+
+  * [Hello World](/projects/blazor/HelloWorld)
 
     The smallest Blazor app you can create.
 
@@ -26,11 +28,11 @@ You will find samples for Blazor, a .NET application framework for Web Assembly 
 
   * [Component Four - Handling Custom Event from Component](/projects/blazor/ComponentFour)
 
-    This sample shows how to raise a custom event from a component and how to handle them.
+    This sample shows how to raise a custom event from a component and how to handle them using `EventCallback<>`.
    
-  * [Component Five - Inherit from a BlazorComponent class](/projects/blazor/ComponentFive)
+  * [Component Five - Inherit from a ComponentBase class](/projects/blazor/ComponentFive)
 
-    This sample shows how to inherit from a `BlazorComponent` class. This allows you to share common code across components. You can also use this technique to have a 'Code Behind' experience if that's your thing.
+    This sample shows how to inherit from a `ComponentBase` class. This allows you to share common code across components. You can also use this technique to have a 'Code Behind' experience if that's your thing.
 
   * [Component Six - When to call StateHasChanged](/projects/blazor/ComponentSix)
 
@@ -52,6 +54,30 @@ You will find samples for Blazor, a .NET application framework for Web Assembly 
 
     Similar to __Component Nine__ except that this time the property is a `List<int>` instead of an `int`.
 
+  * [Component Eleven - Capture unmatched component parameters](/projects/blazor/ComponentEleven)
+
+    Use `[Parameter(CaptureUnmatchedValues = true)]` to capture unmatched parameters.
+
+  * [Component Twelve - Splatting arbitrary parameters to components](/projects/blazor/ComponentTwelve)
+
+    Use `@attributes` and a `Dictionary<string, object>` or `List<KeyValuePair<string, object>>`.
+    
+  * [Component Thirteen - more example of attributes splatting](/projects/blazor/ComponentThirteen)
+
+    Use `@attributes` attributes splatting on an input form.
+
+  * [Component Fourteen - various ways to pass data to components](/projects/blazor/ComponentFourteen)
+
+    This sample demonstrates the various ways to pass parameters to a component and how it affects on how the data is perceived by the component.
+
+  * [Component Fifteen](/projects/blazor/ComponentFifteen)
+
+    This sample demonstrates how to use partial class in a razor component. This allows you to separate your C# code from the markup.
+    
   * [Data Binding - Form](/projects/blazor/DataBinding)
 
     Show an example of two day databinding to form element `input=text`, `textarea`. `input=checkbox`, and `select`.
+
+  * [Date Binding - EditForm](/projects/blazor/DataBindingTwo)
+
+    Show an example of `EditForm` and its 6 input controls, including form validation.

@@ -1,20 +1,20 @@
-
-using Microsoft.AspNetCore.Blazor.Components;
+using Microsoft.AspNetCore.Components;
 using System;
+using System.Threading.Tasks;
 
-public class GreetingBase : BlazorComponent
+namespace ComponentFive.Pages
 {
-    [Parameter]
-    Action<int> OnUpdate { get; set; }
-
-    int _currentCount;
-
-    protected void IncrementCount()
+    public class GreetingBase : ComponentBase
     {
-        _currentCount++;
-        if (OnUpdate != null)
+        [Parameter]
+        public EventCallback<int> OnUpdate { get; set; }
+
+        int _currentCount;
+
+        protected async Task IncrementCount()
         {
-            OnUpdate(_currentCount);
+            _currentCount++;
+            await OnUpdate.InvokeAsync(_currentCount);
         }
     }
 }

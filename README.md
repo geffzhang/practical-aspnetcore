@@ -1,24 +1,39 @@
-# 216 samples for ASP.NET Core 2.1 and 2.2 fundamentals (updated almost daily - except during Summer)
+# 306 samples for ASP.NET Core 2.1, 2.2, 3.0, 3.1 and 5.0 preview 3 fundamentals
+
+**There is an [active branch](https://github.com/dodyg/practical-aspnetcore/tree/3.1-LTS) that converts all these samples to ASP.NET Core 3.1 and ASP.NET Core 5. This branch was last updated on May 1st, 2020.**
 
 If you are studying ASP.NET Core, I am lurking on this **[Gitter Channel](https://gitter.im/DotNetStudyGroup/aspnetcore)**.
+
+Hi Nuget visitors, if you have problem finding the sample you are looking for, please use the github search functionality or otherwise [file a case](https://github.com/dodyg/practical-aspnetcore/issues). I will be happy to point you to the right direction.
 
 ## Welcome
 
 The goal of this project is to enable .NET programmers to learn the new ASP.NET Core stack from the ground up directly from code. There is so much power in the underlying ASP.NET Core stack. Don't miss them!
 
-I highly recommend using [Visual Studio Code](https://code.visualstudio.com/) to play around with these samples but it is not required. You can use Visual Studio 2017 as well.
+I highly recommend using [Visual Studio Code](https://code.visualstudio.com/) to play around with these samples but it is not required. You can use Visual Studio 2019 as well.
 
 Note: If you encounter problem with downloading packages or Nuget, try the following command `nuget.exe locals -clear all`.
 
 ASP.NET Core API Browser is also very [handy](https://docs.microsoft.com/en-us/dotnet/api/?view=aspnetcore-2.2). 
 
-### Security 
+### Additional Sections
 
-There is a new section dedicated to [all security related topics (1 sample)](/projects/security) for ASP.NET Core.
 
-### MVC, SignalR and Blazor
+| Section | No. of Samples  | .NET Core SDK Version |
+| ------- | ------- | ------- |
+| [ASP.NET Core 3.0](/projects/3-0) | 57 | 3.0|
+| [Blazor Client Side (Web Assembly)](/projects/blazor/README.md) | 18 | 3.1|
+| [Blazor Server Side](/projects/blazor-ss) | 7 | 3.0|
+| [ASP.NET Core MVC](/projects/mvc/README.md) | 47 | 2.1 |
+| [ASP.NET Core Razor Pages](/projects/razor-pages/README.md) | 4|  2.2 |
+| [ASP.NET Core SignalR](/projects/signalr/README.md) |1| 2.1 |
+| [Security related samples](/projects/security) | 1 |2.2 |
+| [Orchard Core Framework](/projects/orchard-core) | 4| 3.0 |
+| [What's new in ASP.NET Core 2.2](/projects/2-2) | 14 | 2.2 |
+| [What's new in ASP.NET Core 2.1](/projects/2-1) | 6 | 2.1 |
+| [What's new in ASP.NET Core 2.0](/projects/2-0) | 11 | Features introduced in 2.0 but samples run on 2.1 |
+| [Foundational ASP.NET Core 2.1 Samples](#foundation-aspnet-core-21-samples) | 136 | 2.1 |
 
-There are dedicated samples for **ASP.NET Core MVC 2.1** [here (40 samples)](/projects/mvc/README.md), **Razor Pages 2.2** [here (1 sample)](/projects/razor-pages/README.md), **ASP.NET Core SignalR 2.1** [here (1 sample)](/projects/signalr/README.md) and **Blazor** [here (12 samples)](/projects/blazor/README.md). The rest of projects here are for ASP.NET Core only.
 
 ## How to run these samples
 
@@ -46,272 +61,6 @@ Most of the examples here uses `Microsoft.AspNetCore` package which is a package
 ```
 
 When an example requires packages that are not listed here, it will be added to the project file.
-
-## What's new in ASP.NET Core 2.2 (13)
-
-  All the samples in this section requires ASP.NET Core 2.2 (`2.2.100`). Download it [here](https://www.microsoft.com/net/download/dotnet-core/2.2).
-  
-  * [Endpoint Routing](/projects/2-2/endpoint-routing)
-
-    Enable Endpoint Routing for your MVC Core app. You will gain a faster performance and more functionalities regarding routing. 
-
-  * [Endpoint Routing - GetUriByAction](/projects/2-2/endpoint-routing-2)
-
-    Use the `LinkGenerator` singleton and its `GetUriByAction` method to generate a link to an Action. It will respect the convention used by MVC, which is, in this example, `app.UseMvcWithDefaultRoute();`.
-
-  * [Endpoint Routing - GetUriByAction - 2](/projects/2-2/endpoint-routing-3)
-
-    Use the `LinkGenerator` singleton and its `GetUriByAction` method to generate a link to an Action. This sample uses various combination of `Route` and `HttpGet` attributes to generate various links.
-    
-  * [Endpoint Routing - GetUriByAction - 3](/projects/2-2/endpoint-routing-4)
-
-    Show how to deal with route with values using `LinkGenerator.GetUriByAction`. If you don't deal with the values, the link generator won't generate the link.
-
-  * Endpoint Routing - GetTemplateByAction
-
-    __This sample is no longer relevant__. `LinkGenerator.GetTemplateByAction` has been removed from ASP.NET Core 2.2 final version.
-    Demonstrate on how to obtain route template from an existing Action using `LinkGenerator.GetTemplateByAction` and generate path using the information.
-
-  * [Endpoint Routing - GetPathByAction](/projects/2-2/endpoint-routing-6)
-
-    Show how to deal with route with values using `LinkGenerator.GetPathByAction`. If you don't deal with the values, the link generator won't generate the link.
-
-  * [Parameter Transformer ](/projects/2-2/parameter-transformer)
-     
-    Use Parameter Transformer to control the creation of route token `[area]`, `[controller]` and `[action]`. In this example we use it on `[controller]` and `[action]`.
-   
-  * [Health Check - Check URL](/projects/2-2/health-check)
-
-    Show the simplest way to use health check functionality using `app.UseHealthChecks`.
-
-  * [Health Check - Check URL - 2](/projects/2-2/health-check-2)
-
-    Customize the message returned by `app.UseHealthChecks`.
-
-  * [Health Check - Check URL - 3](/projects/2-2/health-check-3)
-
-    Start implementing `IHealthCheck` to provide status information for the health check service. In this example, it will always return failure because we just throw an exception in the implementation. You will see how the health check handles an unhandled exception.
-
-  * [Health Check - Check URL - 4](/projects/2-2/health-check-4)
-
-    Implement a `IHealthCheck` that check the status of a url. This is the first version of the check so it is primitive but it is also easier to understand. We will go to a more sophisticated multi check in the next examples.
-
-  * [Health Check - Check URL - 5](/projects/2-2/health-check-5)
-
-    Similar to the previous example except that now there are two checks, one fails and one successful. 
-
-  * [Health Check - Check URL - 6](/projects/2-2/health-check-6)
-
-    Similar to the previous example except that one of the check reports "Degraded" status by using `context.Registration.FailureStatus = HealthStatus.Degraded;`.
-
-  * [New Redis Caching Package](/projects/2-2/new-redis-caching-package)
-
-    Instead of using `Microsoft.Extensions.Caching.Redis`, use the new `Microsoft.Extensions.Caching.StackExchangeRedis`. The former will be deprecated in .NET Core 3.0 (https://github.com/aspnet/Announcements/issues/322). 
-
-## What's new in ASP.NET Core 2.1(5)
-
-  *Pre-requisite*: Make sure you download .NET Core SDK [2.1.502](https://dotnet.microsoft.com/download/dotnet-core/2.1#sdk-2.1.502) otherwise below examples won't work.
-
-  **New code based idiom to start your host for ASP.NET Core 2.1**
-
-  It is recommended to use the following approach 
-
-  ```CSharp
-    public class Program
-    {
-        public static void Main(string[] args)
-        {
-            CreateWebHostBuilder(args).Build().Run();
-        }
-
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>()
-                .UseEnvironment("Development");
-    }
-  ```
-
-  instead of
-
-  ```CSharp
-      public class Program
-      {
-        public static void Main(string[] args)
-        {
-            BuildWebHost(args).Run();
-        }
-
-        public static IWebHost BuildWebHost(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>()
-                .UseEnvironment("Development")
-                .Build();
-      }
-  ```
-
-  * [Hello World with Microsoft.AspNetCore.App package](/projects/hello-world-startup-app-package)
-
-    If you are targeting `netcoreapp2.1`, you can use `Microsoft.AspNetCore.App` meta package that download **most** of the necessary packages to develop an ASP.NET Core/MVC system (including EF DB support).
-
-    This package is a trimmed version of `Microsoft.AspNetCore.All` meta package. You can find more details about the removed dependencies [here](https://github.com/aspnet/Announcements/issues/287).
-
-    `Microsoft.AspNetCore.App` is going to be the default meta package when you create a new ASP.NET Core 2.1 package.
-
-  * [HttpClientFactory](/projects/httpclientfactory)
-
-    Now you can have centrally managed instance of HttpClient using ```IHttpClientFactory``` via dependency injection.
-
-  * [HttpClientFactory - 2](/projects/httpclientfactory-2)
-
-    Use preconfigured `HttpClient` via `IHttpClientFactory`.
-
-  * [HttpClientFactory - 3](/projects/httpclientfactory-3)
-
-    Use `IServiceCollection.AddHttpClient` to provide `HttpClient` for your classes.
-
-  * [HttpClientFactory - 4](/projects/httpclientfactory-4)
-
-    Use `IServiceCollection.AddHttpClient` to provide `HttpClient` for interface-implementing classes.
-
-  * [Supress Status Messages](/projects/suppress-status-messages)
-
-    You can hide status messages when you start up your web application. It's a small useful thing.
-
-## What's new in ASP.NET Core 2.0 (11)
-
-  This section will show new things in [ASP.NET Core 2.0](https://github.com/aspnet/Home/releases/tag/2.0.0). This is a good explanation on [what's new on ASP.NET Core 2.0](https://blogs.msdn.microsoft.com/webdev/2017/08/25/asp-net-core-2-0-features-1/).
-
-  * [Hello World with Microsoft.AspNetCore.All package](/projects/hello-world-startup-all-package)
-
-      If you are targeting `netcoreapp2.0`, you can use `Microsoft.AspNetCore.All` meta package that download **most** of the necessary packages to develop an ASP.NET Core/MVC system (including EF DB support).
-
-      It also adds the following packages
-
-      ```
-      Installing Microsoft.IdentityModel.Logging 1.1.4.
-      Installing Microsoft.IdentityModel.Tokens 5.1.4.
-      Installing runtime.win-x64.runtime.native.System.Data.SqlClient.sni 4.4.0.
-      Installing runtime.win-x86.runtime.native.System.Data.SqlClient.sni 4.4.0.
-      Installing runtime.win-arm64.runtime.native.System.Data.SqlClient.sni 4.4.0.
-      Installing System.IdentityModel.Tokens.Jwt 5.1.4.
-      Installing System.Text.Encoding.CodePages 4.4.0.
-      Installing runtime.native.System.Data.SqlClient.sni 4.4.0.
-      Installing Microsoft.Azure.KeyVault.WebKey 2.0.7.
-      Installing Microsoft.Rest.ClientRuntime.Azure 3.3.7.
-      Installing Microsoft.Rest.ClientRuntime 2.3.8.
-      Installing SQLitePCLRaw.lib.e_sqlite3.v110_xp 1.1.7.
-      Installing SQLitePCLRaw.lib.e_sqlite3.linux 1.1.7.
-      Installing SQLitePCLRaw.lib.e_sqlite3.osx 1.1.7.
-      Installing SQLitePCLRaw.provider.e_sqlite3.netstandard11 1.1.7.
-      Installing Microsoft.IdentityModel.Protocols 2.1.4.
-      Installing Microsoft.NETCore.App 2.0.0-preview2-25407-01.
-      Installing Microsoft.NETCore.DotNetHostPolicy 2.0.0-preview2-25407-01.
-      Installing Microsoft.NETCore.Platforms 2.0.0-preview2-25405-01.
-      Installing NETStandard.Library 2.0.0-preview2-25401-01.
-      Installing Microsoft.NETCore.DotNetHostResolver 2.0.0-preview2-25407-01.
-      Installing Microsoft.Packaging.Tools 1.0.0-preview2-25401-01.
-      Installing System.Interactive.Async 3.1.1.
-      Installing SQLitePCLRaw.core 1.1.7.
-      Installing Microsoft.IdentityModel.Protocols.OpenIdConnect 2.1.4.
-      Installing SQLitePCLRaw.bundle_green 1.1.7.
-      Installing Microsoft.Azure.KeyVault 2.3.2.
-      Installing Microsoft.IdentityModel.Clients.ActiveDirectory 3.14.1.
-      Installing WindowsAzure.Storage 8.1.4.
-      Installing System.Data.SqlClient 4.4.0.
-      Installing Microsoft.NETCore.DotNetAppHost 2.0.0-preview2-25407-01.
-      ```
-
-      In ASP.NET Core 2.0, this is the recommended way to start your host
-
-      ```
-      public class Program
-      {
-        public static void Main(string[] args)
-        {
-            BuildWebHost(args).Run();
-        }
-
-        public static IWebHost BuildWebHost(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>()
-                .UseEnvironment("Development")
-                .Build();
-      }
-      ```
-
-  * [A new way of configuring logging](/projects/logging)
-
-    Now you configure logging at `Program` instead of `Startup.Configure` via `ConfigureLogging`. 
-
-  * [Logging filtering](/projects/logging-with-filter)
-
-    Now you can adjust what kind of logging information from various part of ASP.NET Core and your app you want show/stored.
-
-  * [IConfiguration is now core](/projects/iconfiguration)
-
-    ASP.NET Core 1.1
-
-    ```
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger)
-        {
-            //These are the three default services available at Configure
-            app.Run(context =>
-            {
-                return context.Response.WriteAsync('hello world');
-            });
-        }
-    ```
-
-    ASP.NET Core 2.0
-
-    ```
-      public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger, IConfiguration configuration)
-      {
-          //These are the four default services available at Configure
-          app.Run(context =>
-          {
-              return context.Response.WriteAsync(configuration["greeting"]);
-          });
-      }
-    ```
-
-  * [Session Feature with Redis using BinaryFormatter](/projects/features-session-redis)
-
-    This shows how to use session with ```Redis``` store. We use ```BinaryFormatter``` which is only available at `.NET Core 2.0` or above to serialize and deserialize your object. *The better way is to serialize your object using Json - BinaryFormatter is SLOW*.
-
-    Make sure you have ```Redis``` running on your ```localhost``` at default port. The connection string is specified at ```appsetings.json```.
-
-  * [Session Feature with Redis using JSON Serialization](/projects/features-session-redis-2)
-
-    This shows how to use session with ```Redis``` store using Json instead of ```BinaryFormatter```.
-
-    Make sure you have ```Redis``` running on your ```localhost``` at default port. The connection string is specified at ```appsetings.json```.
-
-  * [Anti Forgery on Form](/projects/anti-forgery)
-
-    This exists on since .NET Core 1.0 however the configuration for the cookie has changed slightly. We are using ```IAntiForgery``` interface to store and generate anti forgery token to prevent XSRF/CSRF attacks. 
-
-  * [Razor Pages Basic](/projects/mvc/razor-pages-basic)
-
-    This is the simplest example of the brand new `Razor Pages`. It shows the two approaches to `Razor Pages`, one with inline code behind and another with separate code behind.
-
-  * [Razor Pages and MVC Basic](/projects/mvc/razor-pages-mvc)
-
-    Compare and contrast on how the same task can be performed by using `Razor Pages` and `MVC`.
-
-    This sample also shows you how to us `Entity Framework Core` In-Memory Database.
-
-  * [UseRouter extension](/projects/use-router)
-
-    Use ```app.UseRouter()``` extension to create minimalistic HTTP services similar to Nancy.
-
-  * [UseRouter extension 2](/projects/use-router-2)
-
-    Use ```app.UseRouter()``` with alternative lambda signature.
-
-  * [IHostedService](/projects/ihosted-service)
-
-    Implement background tasks using the new `IHostedService` interface.
 
 ## Foundation ASP.NET Core 2.1 Samples
 
@@ -423,7 +172,7 @@ All these projects require the following dependencies
 
     Demonstrate on how to add a response header and where is allowed place to do it.
 
-* **Request(8)**
+* **Request(9)**
   
   This section shows all the different ways you capture input and examine request to your web application.
 
@@ -432,10 +181,14 @@ All these projects require the following dependencies
       
       Detect the verb/method of the current request. 
 
-  * **Headers (2)**
+  * **Headers (3)**
     * [Access Request Headers](/projects/hello-world-startup-basic-request-headers)
       
       Enumerate all the available headers in a request.
+
+    * [Access Request Headers using common HTTP header names contained in HeaderNames](/projects/hello-world-startup-basic-request-headers-names)
+
+      This sample shows all the common HTTP header names contained in `HeaderNames` class. So instead of using string to obtain a HTTP Header, you can just use a convenient constant such as `HeaderNames.ContentType`.
 
     * [Type Safe Access to Request Headers](/projects/hello-world-startup-basic-request-headers-typed)
       
@@ -524,13 +277,21 @@ All these projects require the following dependencies
 
     We have been building a `RouteTemplate` manually using `TemplateSegment` and `TemplatePart`. In this example we are using `TemplateParser` to build the `RouteTemplate` using string.
 
-* **Middleware (10)**
+* **Middleware (12)**
 
-  We will explore all aspect of middleware building in this section. There is no extra dependency taken other than `Kestrel` and `dotnet watch`. 
+  We will explore all aspect of middleware building in this section.
 
   * [Middleware 1](/projects/middleware-1)
    
     This example shows how to pass information from one middleware to another using `HttpContext.Items`.
+
+  * [Middleware 2](/projects/middleware-2)
+   
+    As a general rule, only one of your Middleware should write to Response in an execution path. This sample shows how to work around this by buffering the Response.
+
+    e.g.
+
+    If path `/` involves the execution of Middleware 1, Middleware 2 and Middleware 3, only one of these should write to Response.
 
   * [Middleware 3](/projects/middleware-3)
    
@@ -568,8 +329,11 @@ All these projects require the following dependencies
    
     This sample is similar to `Middleware 10` except that this one implement `IMiddleware` to create Factory-based middleware activation. This means that you can create a middleware that is not a singleton (either Transient or Scoped). 
 
+  * [Middleware 12](/projects/middleware-12)
 
-* **Features (8)**
+    Contrast the usage of `MapWhen` (which branch execution) and `UseWhen` (which doesn't branch execution) in configuring your Middleware.
+
+* **Features (9)**
   
   Features are collection of objects you can obtain from the framework at runtime that serve different purposes.
 
@@ -605,9 +369,13 @@ All these projects require the following dependencies
 
     Use session within your middlewares. This sample shows a basic usage of in memory session. It needs the following dependency '"Microsoft.AspNetCore.Session" : "1.1.0-*"` and `"Microsoft.Extensions.Caching.Memory" : "2.1.0-*"`.
 
+  * [Maximum Request Body Size Feature](/projects/features-max-request-body-size)
+
+    Use this feature to read and set maximum HTTP Request body size.
+
 * **Dependency Injection (2)**
 
-  ASP.NET Corenetcore lives and die by DI. It relies on `Microsoft.Extensions.DependencyInjection` library. There is no need to put this dependency in your `project.json` explicitly because aspnetcore already has this package as its own dependency.
+  ASP.NET Corenetcore lives and die by DI. It relies on `Microsoft.Extensions.DependencyInjection` library. 
 
   * [Dependency Injection 1 - The basic](/projects/dependency-injection-1)
 
@@ -634,7 +402,7 @@ All these projects require the following dependencies
 
 * **In Memory Caching (a.k.a local cache) (4)**
 
-  These samples depends on `Microsoft.Extensions.Caching.Memory` library. Please add this dependency to your `project.json`.
+  These samples depends on `Microsoft.Extensions.Caching.Memory` library. 
 
   * [Caching - Absolute/Sliding expiration](/projects/caching)
 
@@ -642,16 +410,7 @@ All these projects require the following dependencies
 
   * [Caching 2 - File dependency](/projects/caching-2)
     
-    Add file dependency to your caching so when the file changes, your cache expires.
-
-    You need to put the cache file in your `project.json` so it gets copied over, e.g.
-
-    `"buildOptions": {
-        "emitEntryPoint": true,
-        "copyToOutput": ["cache-file.txt"]
-    }`
-
-    Note: example 1 is forthcoming. The inspiration has not arrived yet.
+    Add file dependency to your caching so when the file changes, your cache expires. Make sure to set `cache-file.txt` to copy over to bin.
 
   * [Caching 3 - Cache removal event](/projects/caching-3)
 
@@ -878,7 +637,7 @@ All these projects require the following dependencies
 
     Implement a rudimentary single channel chat server.
 
-* **Server Side Events (1)**
+* **Server-Sent Events (1)**
 
   * [Forever Server](/projects/sse)
 
@@ -896,7 +655,22 @@ All these projects require the following dependencies
 
     This sample process RSS Outline Extension. 
 
+* **Utils(3)**
+
+  * [Status Codes](/projects/http-status-codes)
+
+    Here we contrast between the usage of `Microsoft.AspNetCore.Http.StatusCodes` and `System.Net.HttpStatusCode`.
+
+  * [MediaTypeNames](/projects/media-type-names)
+
+    This class provides convenient constants for some common MIME types. It's not extensive by any means however `MediaTypeNames.Text.Html` and `MediaTypeNames.Application.Json` come handy.  
+
+  * [MediaTypeNames - 2](/projects/media-type-names-2)
+
+    Using `FileExtensionContentTypeProvider` to obtain the correct MIME type of a filename extension.
+
 * **Misc (3)**
+
 
   * [Markdown server](/projects/markdown-server)
 
@@ -918,7 +692,7 @@ All these projects require the following dependencies
 
     We add dependency ```"Microsoft.AspNetCore.Identity": "2.1.0"``` to enable this functionality.
 
-* **Web Utilities(2)**
+* **Web Utilities(3)**
 
   This section shows various functions avaiable at `Microsoft.AspNetCore.WebUtilities`. 
 
@@ -926,18 +700,39 @@ All these projects require the following dependencies
 
     This utility helps you generate query string for your url safely (ht [Rehan Saeed](https://rehansaeed.com/asp-net-core-hidden-gem-queryhelpers/)).
 
+  * [Parse Query String](/projects/web-utilities-query-helpers-2)
+
+    `QueryHelpers.ParseQuery` allows you to parse a raw query string and access its individual key and values.
+
   * [Reason Phrases](/projects/web-utilities-reason-phrases)
 
-    This utility returns HTTP reasonse phrases given a status code number.
+    This utility returns HTTP response phrases given a status code number.
     
 
-* **Uri Helper(1)**
+* **Uri Helper(5)**
   
   This section shows various methods available at `Microsoft.AspNetCore.Http.Extensions.UriHelper`.
 
   * [Get Display Url](/projects/uri-helper-get-display-url) 
 
     `Request.GetDisplayUrl()` shows complete url with host, path and query string of the current request. It's to be used for display purposes only.
+
+  * [Get Encoded Url](/projects/uri-helper-get-encoded-url)
+
+    `Request.GetEncodedUrl()` returns the combined components of the request URL in a fully escaped form suitable for use in HTTP headers and other HTTP operations.
+
+  * [Get Encoded Path and Query](/projects/uri-helper-get-encoded-path-and-query)
+
+    `UriHelper.GetEncodedPathAndQuery` returns the relative URL of a request.
+
+  * [From Absolute](/projects/uri-helper-from-absolute)
+
+    `UriHelper.FromAbsolute` separates the given absolute URI string into components.
+
+  * [Build Absolute](/projects/uri-helper-build-absolute)
+
+    `UriHelper.BuildAbsolute` combines the given URI components into a string that is properly encoded for use in HTTP headers. This sample
+    shows 9 ways on how to use it.
 
 
 * **Trimming (1)**
@@ -956,17 +751,7 @@ All these projects require the following dependencies
   
     This shows an example on how to send an email using SMTP.
 
-
-* **Modules (2)**
-
-  This section shows how to create pluggable and extensible web system using ```Orchardcore Modules``` system.
-
-  * [Modular Hello World](/projects/orchardcore-module)
-
-    Run ```dotnet watch run``` at the ```web``` folder. This example shows a module that just writes "hello world".
-
-    The ```module1``` project requires ```OrchardCore.Module.Targets``` and the host ```web``` project requires ```OrchardCore.Application.Targets``` and ```OrchardCore.Modules```.
-
+    Thanks to [@Kinani95](https://twitter.com/Kinani95).
 
   * [Keeping track of anonymous users](/projects/anonymous-id)
 
@@ -1045,14 +830,6 @@ All these projects require the following dependencies
   * [Listen to IApplicationLifetime events](/projects/generic-host-iapplicationlifetime)
 
     Inject `IApplicationLifetime` and listen to `ApplicationStarted`, `ApplicationStopping` and `ApplicationStopped` events. This is important to allow services to be shutdown gracefully. The shutdown process blocks until `ApplicatinStopping` and `ApplicationStopped` events complete.
-
-## Other resources
-
-These are other aspnetcore resources with code samples
-
-* [aspnetcore documentation](https://github.com/aspnet/Docs/tree/master/aspnet/)
-* [aspnetcore entropy](https://github.com/aspnet/entropy)
-
 
 ## Misc
 

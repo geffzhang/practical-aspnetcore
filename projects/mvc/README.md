@@ -1,4 +1,4 @@
-# MVC (40)
+# MVC (47)
 
 This section contains all micro samples for **ASP.NET Core MVC 2.1**.
 
@@ -40,6 +40,19 @@ There is no more need to include this tool in your project `<DotNetCliToolRefere
 
     Use `[FromRoute]` attribute to have MVC put all the route values nicely in a class instead of using primitives e.g. `int userId`.
 
+
+## Action Results
+  
+  We are exploring various  that an Action returns.
+
+  * [FileStreamResult](/projects/mvc/result-filestream)
+
+    An example on how to return a file to the browser when you have a stream available.  
+
+  * [PhysicalFileResult](/projects/mvc/result-physicalfile)
+
+    An example on how to return a file to the browser when you have a path to a file on disk.
+ 
 
 ## Formatters
 
@@ -182,7 +195,11 @@ There is no more need to include this tool in your project `<DotNetCliToolRefere
     });
     ```
 
-## Localization (7)
+  * [Routing Table](/projects/mvc/routing-table)
+
+    Use `Microsoft.AspNetCore.Mvc.Infrastructure.IActionDescriptorCollectionProvider` to interrogate the routing table to display all the registered routes in the system, whether it is using conventional routing or attribute routing.
+
+## Localization (9)
 
   We are exploring all the nitty gritty of localization with MVC here.
 
@@ -216,7 +233,15 @@ There is no more need to include this tool in your project `<DotNetCliToolRefere
 
     This sample shows how to use localization resources located in a separate project. Notice how the namespace correspondents to the folder name at the resource project.
 
-## View Component (2)
+  * [MVC Localization - 8](/projects/mvc/mvc-localization-8)
+
+    This sample demonstrates the usage of `AcceptLanguageHeaderRequestCultureProvider` and `Accept-Language` HTTP header.
+
+  * [MVC Localization - 9](/projects/mvc/mvc-localization-9)
+
+    This sample demonstrates the situation of `cultural fallback` behaviour - `Starting from the requested culture, if not found, it reverts to the parent culture of that culture.`[doc](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/localization?view=aspnetcore-2.2#culture-fallback-behavior).
+
+## View Component (4)
 
   We are exploring everything about ViewComponent in this section.
 
@@ -241,6 +266,14 @@ There is no more need to include this tool in your project `<DotNetCliToolRefere
 
     This sample is the same as previous sample except the use of Tag Helper invocation. Use `@addTagHelper *, <AssemblyName>` to enable the invocation of view component as a Tag Helper. Pascal-cased view component class and properties are translated into their lower kebab case. 
 
+  * [ View Component - Return View Component result directly from a controller](/projects/mvc/view-component-3)
+
+    This sample shows how to return the output of a View Component directly from a controller. Don't forget that your `_Layout.cshtml` won't be used here. It will just return whatever your View Component is producing.
+
+  * [ View Component - Passing complex object as parameter](/projects/mvc/view-component-4)
+
+    This sample shows you how to pass complex object to the View Component.
+
 ## Razor Class Library (3)
 
   We are exploring Razor Class Library (RCL) functionalities in this section. RCL allows you to create reusable UI libraries.
@@ -248,14 +281,21 @@ There is no more need to include this tool in your project `<DotNetCliToolRefere
   * [Razor Class Library - Hello World](/projects/mvc/razor-class-library)
 
     This is the simplest example to demonstrate the functionality of RCL. The library uses Razor Pages. Go to `src/WebApplication` folder and run `dotnet watch run` to run the sample.
+
+    Thanks to [@AdrienTorris](https://twitter.com/AdrienTorris).
  
   * [Razor Class Library - Include static files](/projects/mvc/razor-class-library-with-static-files)
 
     This is similar to previous example except now you can including static files (javascript, images, css, etc) with your RCL. Go to `src/WebApplication` folder and run `dotnet watch run` to run the sample.
+    
+    Thanks to [@AdrienTorris](https://twitter.com/AdrienTorris).
 
   * [Razor Class Library - using Controllers and Views](/projects/mvc/razor-class-library-with-controllers)
 
     This sample demonstrates on how to use Controllers and Views in your Razor Class Library in contrast to previous examples that uses Razor Pages.
+
+    
+    Thanks to [@AdrienTorris](https://twitter.com/AdrienTorris).
 
 ## Syndication Output Formatter (1)
 
